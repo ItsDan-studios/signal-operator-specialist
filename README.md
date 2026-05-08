@@ -1,44 +1,47 @@
-# Signal Operator — A Folder-Based AI Specialist
+# Signal Operator - A Folder-Based AI Specialist
 
-A drop-in Claude specialist that turns Claude into a triage operator for solo CEOs and founders juggling priorities. Built using Interpretable Context Methodology (ICM).
-
-## What this is
-
-The `signal-operator/` folder in this repo is a complete AI specialist. Drop it into a Claude project (claude.ai/projects) and Claude becomes the Signal Operator — a triage specialist that keeps your operation organized into four buckets (signal, noise, completed, archived) and pushes back when items pretend to be priorities.
+A drop-in Claude specialist that turns Claude into an executive triage operator for solo CEOs and founders. It helps you build a live signal-vs-noise board, keep up to 3 active signals, and protect attention from productive-looking drift.
 
 ## Quick start
 
-1. Clone this repo (or download the `signal-operator/` folder).
-2. Drop the `signal-operator/` folder into a Claude project.
-3. Start a chat with: **"Be my Signal Operator and run onboarding."**
-4. Answer four onboarding questions.
-5. The operator scaffolds your state folders, runs your first triage, and tells you what to do today.
+1. Clone this repo or download the `signal-operator/` folder.
+2. Drop `signal-operator/` into a Claude Project.
+3. Start with: **"Be my Signal Operator and run onboarding."**
+4. Phase 1 builds your user context.
+5. Phase 2 builds your first signal board under `signal-state/`.
 
-Full usage instructions: [`signal-operator/README.md`](signal-operator/README.md).
+Full usage instructions live in [`signal-operator/README.md`](signal-operator/README.md).
 
-## How it works
+## What the folder does
 
-The specialist is a folder of markdown files. Each file does one job:
+The specialist is packaged as five ICM files:
 
 | File | Job |
 |---|---|
-| `identity.md` | Who the operator is and what it does/doesn't cover |
-| `rules.md` | The behavioral policy (terse, points to detailed protocols) |
-| `examples.md` | Three sample sessions showing the operator in action |
-| `reference/` | Detailed protocols, methodology, templates, pushback patterns |
-| `README.md` | One-paragraph cold-start for users |
+| `identity.md` | Who the operator is and what it is for |
+| `rules.md` | Short behavioral policy and read order |
+| `examples.md` | What good interaction looks like |
+| `reference/` | Protocols, doctrine, templates, and ranking logic |
+| `README.md` | Cold-start instructions for the end user |
 
-Claude reads the folder, becomes the specialist, and operates against the rules.
+The operator keeps mutable user state separate from the specialist itself:
 
-User state (the four bucket folders) lives separately in the user's Claude project root, created and maintained by the operator automatically. State is never inside the specialist folder — clean separation between the immutable specialist and the user's evolving operating picture.
+```text
+signal-state/
+├── user-context.md
+├── signals/
+├── noise/
+├── completed/
+└── archived/
+```
 
 ## Built for
 
-Solo CEOs and founders who run too many fronts and need an operator-style triage partner — not a coach, not a productivity app, not a calendar tool. Triage and only triage.
+Solo CEOs and founders who need a sharp signal-vs-noise filter, not a coach, not a planner, and not a generic productivity bot.
 
 ## Methodology
 
-Built using Interpretable Context Methodology (ICM): folders as architecture, each file does one job, structure tells you what's where. The specialist itself models ICM at the file level; the user's state folders extend the same pattern at the data level.
+Built using Interpretable Context Methodology (ICM): the specialist stays reusable, the user state stays explicit, and the read path stays interpretable.
 
 ## License
 
