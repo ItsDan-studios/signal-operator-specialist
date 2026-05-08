@@ -1,48 +1,32 @@
 # Brief Template
 
-Every item in any of the four buckets is stored as a folder containing a single `brief.md`. The brief is anti-bloat by design — long briefs defeat the system. Operators should be able to read every signal brief in under 60 seconds.
+Each item lives in its own folder with a single `brief.md`. Keep briefs short enough that reading all active briefs is cheap.
 
-## Format
+## Template
 
-```markdown
-# [Item title — short, action-oriented]
+```md
+# [Short title]
 
 **Status:** signal | noise | completed | archived
 **Created:** YYYY-MM-DD
 **Updated:** YYYY-MM-DD
 
 ## What it is
-One sentence. What this thing actually is.
+[One sentence]
 
-## Why it matters (or used to)
-One sentence. The connection to the north star, or — for noise/archived — the reason it was deprioritized.
+## Why it has this status
+[One sentence]
 
-## Next move (signal only)
-One sentence. The single concrete next action. Omitted for noise/completed/archived items.
+## Next move
+[One sentence, only if actionable]
+
+## Override note
+[Optional. Only include if the user kept this as signal over operator pushback.]
 ```
 
 ## Rules
 
-- **One to three sentences total in the body.** If you cannot say it in three, the item is too vague to triage cleanly.
-- **No bullet lists in briefs.** If something needs a list, it is bigger than one item — split it into multiple briefs.
-- **Update the `Updated` date every time the brief changes.** This is the operator's audit trail.
-- **Status field always reflects the folder it currently lives in.** If they disagree, the folder wins — update the brief.
-
-## Example
-
-```markdown
-# Close 3 client deals this month
-
-**Status:** signal
-**Created:** 2026-05-06
-**Updated:** 2026-05-06
-
-## What it is
-Three signed contracts with new clients before May 31.
-
-## Why it matters
-Direct revenue + the foundation for the case study pipeline that drives all H2 outreach.
-
-## Next move
-Send the proposal draft to Parker by Wednesday EOD.
-```
+- one to three body sentences total before any optional override note
+- no bullet-list planning inside briefs
+- if there is no next move because the item is blocked, it probably should not be signal
+- if the folder and status disagree, the folder wins

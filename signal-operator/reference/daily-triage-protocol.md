@@ -1,76 +1,61 @@
 # Daily Triage Protocol
 
-The flow for every session AFTER onboarding. Triggered when the operator detects state folders already exist in the user's project.
+Use this flow after onboarding is complete and `signal-state/` already exists.
 
-The user starts each session with: *"Daily triage — here's what's new"* (or any natural variant). The operator runs this protocol.
+## Load order
 
-## Step 1 — Load state
+Read in this order:
 
-In this exact order:
+1. `identity.md`
+2. `rules.md`
+3. `signal-state/user-context.md`
+4. `signal-state/signals/index.md`
+5. `signal-state/noise/index.md`
+6. `signal-state/completed/index.md`
+7. `signal-state/archived/index.md`
+8. every active signal brief
 
-1. Read `signal-operator/identity.md` (re-establish role)
-2. Read `signal-operator/rules.md` (re-establish behavior)
-3. Read all four `index.md` files (signals, noise, completed, archived) — scan only, no full briefs
-4. Read every `brief.md` inside `signals/` — full content (smaller set, worth the context cost)
-5. Do NOT read full briefs in noise/completed/archived unless the user references a specific item there
+Do not load full briefs from noise, completed, or archived unless the user points to one directly.
 
-This loads enough state to triage intelligently without bloating context.
+## Apply the delta
 
-## Step 2 — Apply user input as delta
+The user update will usually contain one or more of these:
 
-The user's input falls into one of these shapes (and may combine multiple):
+- status updates on existing items
+- new items
+- reclassification requests
+- signal challenges
+- operating-period changes
 
-### A — Status updates on existing items
-*"Closed the Parker deal."* → Move `signals/parker-deal/` to `completed/parker-deal/`. Update both indexes. Update brief status field.
+Process the update against the board that already exists. Do not restart onboarding unless `signal-state/` is missing or broken.
 
-### B — New items
-*"Got a new prospect from LinkedIn — Sarah from Acme."* → Triage as new item per `triage-method.md`. Create folder + brief in correct bucket. Update bucket index.
+## Active-board rules
 
-### C — Pushback / reclassification on existing items
-*"The bakery SMS thing — kill it."* → Move folder to `archived/`. Update indexes.
+- board supports up to 3 signals
+- fewer than 3 is allowed
+- blocked items move to noise
+- ranking happens after classification
 
-### D — Promotions
-*"The case study writeup — promote that to signal, it's blocking everything."* → Move from noise to signals (if signals < 5; if at 5, surface the cap and resolve).
+If a new item deserves a slot and the board is full, challenge the weakest signal or the new candidate until the board is honest again.
 
-### E — North star changes
-*"Actually my focus this month shifted to launching the cold outreach product."* → Re-confirm new north star with user. Run a fast re-triage of current signals against the new north star. Anything that no longer advances the new north star moves to noise (with explanation).
+## File updates
 
-## Step 3 — Pushback on suspicious new items
+After decisions are locked:
 
-For every NEW signal candidate (not items already in signal being reaffirmed), check against `pushback-patterns.md`. Fire pushback when patterns trigger. Resolve per the pushback resolution rule.
+- move folders if status changes
+- create folders if new items are added
+- update briefs
+- update all affected indexes
+- keep `signal-state/user-context.md` unchanged unless a profile update is explicitly confirmed
 
-## Step 4 — Maintain the cap
+## Profile updates
 
-If signals > 5 after applying the delta, surface this and resolve with the user. Never silently let signals exceed 5.
+If you notice a recurring pattern, you may propose a profile update:
 
-## Step 5 — Update file system
+`I am noticing a pattern here. Want me to add it to your user context?`
 
-Apply all decided file operations per `file-ops-conventions.md`:
-- Create new folders + briefs for new items
-- Move folders for status changes
-- Update every affected `index.md`
-- Update every affected brief's `Updated` date
+Only update `signal-state/user-context.md` if the user agrees.
 
-The operator never leaves the file system half-updated. Every move, every rename, every status change cascades to brief and index in the same operation.
+## Close
 
-## Step 6 — Structured output
-
-```
-**Daily triage complete.**
-
-**North star (unchanged | updated to: [new north star]):** [current north star]
-
-**Signals (N/5):**
-- [item-slug] — [one-line summary]
-- ...
-
-**Changes this session:**
-- Moved: [item] from [bucket] to [bucket] — [reason]
-- Created: [item] in [bucket] — [reason]
-- Pushback resolved: [item] — [how]
-
-**What to do today:**
-[ONE concrete next action drawn from the top signal]
-```
-
-Every session closes the same way: a clear next action. The user never leaves a triage session uncertain about what to do.
+End with the output contract from `rules.md`.
