@@ -1,54 +1,78 @@
 # The Triage Method
 
-The single underlying framework the Signal Operator uses. Every protocol and pattern in this folder traces back to this document.
+This is the operator's core framework. Everything else in `reference/` should agree with this file.
 
-## The four buckets
+## The board
 
-Every active item in the operator's life belongs to **exactly one** of these:
+The board supports up to 3 active signals.
+
+A signal slot is for work that deserves protected attention right now.
+
+Do not fill the board just to fill it. Empty slots are better than fake signals.
+
+## The four states
 
 ### Signal
-The 3-5 things that genuinely advance the user's stated north star *right now*. Nothing more than 5. If signal exceeds 5, something must move out before something new moves in.
 
-Test: *"If I move this forward today, does it materially advance the north star I named?"*
+Signal is one of the few active, actionable items that deserves protected attention right now because it moves the mission, serves a real deadline, removes a real bottleneck, or unlocks execution.
+
+Tests:
+
+- Does this deserve one of the limited active slots right now?
+- Can the user actually move it now?
+- If it moves today, does something meaningful advance?
 
 ### Noise
-Alive but not now. Items that are real (not finished, not abandoned) but do not earn signal status this period. They live here in case context changes. Nothing in noise is trash — it is deferred. Inspect periodically; promote to signal if context shifts.
 
-Test: *"Is this still real? If yes but not advancing the north star, it is noise."*
+Noise is real work that does not deserve one of the active slots right now.
+
+Noise is not fake. It is simply not current signal.
+
+Common reasons:
+
+- wrong operating period
+- blocked or waiting
+- separate track, not current leverage
+- productive-looking drift
+- planning before execution needs it
 
 ### Completed
-Done. Outcome reached, work shipped, decision made. Lives separately from noise because completed work has compounding value (track record, retro material) — it is not the same as deprioritized.
 
-Test: *"Is the outcome reached?"*
+Completed means the work is done and no longer belongs on the active board.
 
 ### Archived
-Dead. Abandoned, no longer relevant, decided against, or moved on from. Lives separately from noise because the operator is explicitly choosing to stop spending attention on it. Archive is gentler than deletion — material is kept for reference but not reviewed.
 
-Test: *"Am I choosing to stop pursuing this?"*
+Archived means the work is explicitly dead, abandoned, or intentionally dropped.
 
-## The north star
+Archive is not the default answer for normal triage tension. Most disputes are signal vs noise.
 
-The user's stated top-priority outcome for the current operating period (typically a week or month). Captured during onboarding via question 1 ("What are you actually building right now?"). Re-confirmed when it shifts.
+## Operating-period logic
 
-The north star is the test every signal must pass. If a candidate signal cannot survive a sentence beginning *"This advances my north star because…"*, it is noise pretending to be signal.
+The user-context file defines the current operating period and the tradeoffs that matter for this user.
 
-## The pushback principle
+That file matters because not everything that is important in general is signal right now.
 
-The operator's job is not to agree. The operator's job is to challenge items that look like signal but are noise wearing a disguise.
+## Actionability rule
 
-Common disguises:
-- **"This feels productive"** — busy work that does not advance the north star
-- **"This is urgent"** — urgency without importance
-- **"I should do this because I have been putting it off"** — guilt-driven, not goal-driven
-- **"This is what I always do at this hour"** — habit-driven, not goal-driven
-- **"This came up in conversation today"** — recency bias
+If something is blocked, waiting, or not actionable now, it should not occupy a signal slot. It belongs in noise until it becomes workable again.
 
-When any of these patterns are detected on an item the user wants to mark as signal, the operator runs the north star alignment test before classifying. See `pushback-patterns.md` for the full pattern list and phrasing.
+## Ranking comes after classification
+
+First choose the active signals. Then rank them.
+
+Use `signal-ranking.md` for ordering the signals once the board is chosen.
 
 ## State as folders
 
-Buckets are real folders in the user's project: `signals/`, `noise/`, `completed/`, `archived/`. Each item is a subfolder containing a `brief.md`. Each bucket folder also has an `index.md` summarizing every item in one line.
+Mutable state lives in:
 
-The operator reads index files to scan and full briefs only for signals (smaller set). This keeps context lean as the system grows.
+```text
+signal-state/
+├── user-context.md
+├── signals/
+├── noise/
+├── completed/
+└── archived/
+```
 
-State movement is always file movement. Promoting noise to signal = moving the folder. Completing a signal = moving the folder to `completed/`. Abandoning anything = moving to `archived/`. The operator handles all moves automatically per `file-ops-conventions.md`.
+The specialist stays separate. The user state is what changes over time.
