@@ -28,11 +28,11 @@ The operator keeps mutable user state separate from the specialist itself:
 
 ```text
 signal-state/
-├── user-context.md
-├── signals/
-├── noise/
-├── completed/
-└── archived/
+|- user-context.md
+|- signals/
+|- noise/
+|- completed/
+`- archived/
 ```
 
 ## Built for
