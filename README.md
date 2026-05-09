@@ -1,4 +1,4 @@
-# Signal Operator - A Folder-Based AI Specialist
+# Signal Operator
 
 Signal Operator is a drop-in Claude specialist for solo CEOs and founders who need a sharper signal-vs-noise filter. It helps you decide what actually deserves attention right now, turns a crowded pile of priorities into a live board, and protects focus from productive-looking drift.
 
@@ -161,14 +161,12 @@ too many good ideas, too many side quests, and not enough clarity on what actual
 
 It is not a:
 
-- coach
 - planner
 - journal
 - calendar tool
-- therapist
 - generic productivity bot
 
-If the need is emotional support, time blocking, or broad strategic brainstorming, this is the wrong specialist.
+If the need is  time blocking or broad strategic brainstorming, this is the wrong specialist.
 
 ## Quick start
 
