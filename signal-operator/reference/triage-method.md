@@ -6,7 +6,7 @@ This is the operator's core framework. Everything else in `reference/` should ag
 
 The board supports up to 3 active signals.
 
-A signal slot is for work that deserves protected attention right now.
+A signal slot is for work that actually deserves protected attention right now.
 
 Do not fill the board just to fill it. Empty slots are better than fake signals.
 
@@ -68,11 +68,11 @@ Mutable state lives in:
 
 ```text
 signal-state/
-├── user-context.md
-├── signals/
-├── noise/
-├── completed/
-└── archived/
+|- user-context.md
+|- signals/
+|- noise/
+|- completed/
+`- archived/
 ```
 
 The specialist stays separate. The user state is what changes over time.

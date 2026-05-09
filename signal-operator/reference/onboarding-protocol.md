@@ -61,11 +61,11 @@ Create:
 
 ```text
 signal-state/
-├── user-context.md
-├── signals/
-├── noise/
-├── completed/
-└── archived/
+|- user-context.md
+|- signals/
+|- noise/
+|- completed/
+`- archived/
 ```
 
 Then:

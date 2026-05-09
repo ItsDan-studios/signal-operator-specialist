@@ -8,23 +8,23 @@ All mutable state lives under:
 
 ```text
 signal-state/
-├── user-context.md
-├── signals/
-│   ├── [item-slug]/
-│   │   └── brief.md
-│   └── index.md
-├── noise/
-│   ├── [item-slug]/
-│   │   └── brief.md
-│   └── index.md
-├── completed/
-│   ├── [item-slug]/
-│   │   └── brief.md
-│   └── index.md
-└── archived/
-    ├── [item-slug]/
-    │   └── brief.md
-    └── index.md
+|- user-context.md
+|- signals/
+|  |- [item-slug]/
+|  |  `- brief.md
+|  `- index.md
+|- noise/
+|  |- [item-slug]/
+|  |  `- brief.md
+|  `- index.md
+|- completed/
+|  |- [item-slug]/
+|  |  `- brief.md
+|  `- index.md
+`- archived/
+   |- [item-slug]/
+   |  `- brief.md
+   `- index.md
 ```
 
 ## Slug rules

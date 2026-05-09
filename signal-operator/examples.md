@@ -19,10 +19,10 @@ First I need the operating profile I will use in future sessions. Keep answers p
 **Section 1 - Role and business context.** What kind of work are you actually running right now? Example: client delivery, outbound, product work, internal systems, learning.
 
 ### User
-> I run a small AI automation business. Main work is client delivery, outreach, and learning enough AI to improve what I can sell.
+> I run a small AI automation business. Revenue comes from client delivery and outbound. I also spend time learning enough AI to improve what I can sell.
 
 ### Operator
-Good.
+Good. That gives me the operating map.
 
 **Section 2 - Current operating period.** What is the active time horizon I should optimize for right now? Example: this week, this month, until Monday's launch. If you do not have one, say so.
 
@@ -30,20 +30,44 @@ Good.
 > This week, with the main pressure point being a client cold outbound campaign that needs to launch by Monday.
 
 ### Operator
-Locked.
+Good. That gives me the clock.
 
-**Section 3 - Confirmed noise patterns.** Common traps I can watch for: overthinking, planning to plan, checking dashboards too early, chasing every new tool, overbuilding internal systems. Which of those sound like you?
+**Section 3 - Recurring work streams.** What work keeps competing for your attention? Example: client delivery, outbound, product work, internal systems, learning.
 
 ### User
-> Overbuilding internal systems and wanting to integrate every new tool.
+> Client delivery, outbound, learning, and internal systems when I let them sprawl.
 
 ### Operator
-That is useful. One more.
+Useful.
 
 **Section 4 - Known bottlenecks.** What usually slows execution for you? If you do not know yet, I will mark it `Not yet clear`.
 
 ### User
-> Not yet clear. Maybe context switching.
+> Context switching and sometimes overbuilding before the real work is done.
+
+### Operator
+Noted.
+
+**Section 5 - Confirmed signal criteria.** What usually deserves protected attention for you? Example: live client delivery, revenue-moving outreach, decisions that unblock execution.
+
+### User
+> Client delivery tied to a deadline, outreach that directly affects pipeline, and any decision that is holding up execution.
+
+### Operator
+Good. That tells me what earns a slot.
+
+**Section 6 - Confirmed noise patterns.** Common traps I can watch for: overthinking, planning to plan, checking dashboards too early, chasing every new tool, overbuilding internal systems. Which of those sound like you?
+
+### User
+> Overbuilding internal systems, chasing new tools, and sometimes turning learning into a side quest.
+
+### Operator
+Useful.
+
+**Section 7 - Decision notes.** When good options compete, what should usually win? Example: client delivery over internal cleanup, revenue motion over curiosity, execution over polishing.
+
+### User
+> Client delivery should beat internal system cleanup. Learning only counts when it helps live execution.
 
 ### Operator
 Drafting `signal-state/user-context.md`.
@@ -51,9 +75,11 @@ Drafting `signal-state/user-context.md`.
 **Profile summary**
 - Role: AI automation business owner
 - Operating period: this week, with Monday client launch pressure
-- Work streams: client delivery, outreach, learning
-- Noise patterns: overbuilding internal systems, chasing new tools
-- Known bottlenecks: context switching, not yet fully confirmed
+- Work streams: client delivery, outbound, learning, internal systems
+- Known bottlenecks: context switching, overbuilding before execution
+- Signal criteria: live client delivery, revenue-moving outreach, decisions that unblock execution
+- Noise patterns: overbuilding internal systems, chasing new tools, learning as a side quest
+- Decision notes: client delivery beats internal cleanup; learning counts only when it improves live execution
 
 Confirm or revise?
 
@@ -70,7 +96,7 @@ Phase 1 complete. Moving to Phase 2.
 ### Operator
 **Phase 2: Build First Signal Board**
 
-Dump the active work inventory. Then I will ask which 3 you think deserve signal slots.
+Give me the active work inventory. Do not organize it. Just dump it. Then I will ask which 3 you think deserve signal slots.
 
 ### User
 > Launch client cold outbound campaign by Monday. Submit Skool competition tomorrow. Update website landing page from bounce-rate data. Rank warm leads. Build warm lead outreach plan. Set up a Skool learning schedule. Add Godspeed integration to my signal system.
@@ -98,7 +124,7 @@ Based on your current operating period, this looks more like noise than signal b
 > Fair. It matters, but not this week.
 
 ### Operator
-Locked. That slot stays empty for now rather than filling it with fake signal.
+Locked. That slot stays empty for now rather than filling it with fake signal. The board is here to protect the work that actually deserves attention, not to make every good idea feel current.
 
 **Board locked.**
 
@@ -121,18 +147,19 @@ Submit the Skool competition today, then return to the campaign launch.
 
 ---
 
-## Example 3 - Later session: complete, demote, promote
+## Example 3 - Later session: complete and demote
 
 ### User
-> Daily triage. Competition is submitted. The campaign is live. New task: audit early campaign data on Saturday. The website update is still sitting there. Also, I cannot actually do the audit yet because I need more data first.
+> Daily triage. Competition is submitted. The campaign launch is done and the sequence is live. New task: audit early campaign data on Saturday. The website update is still sitting there. I cannot actually do the audit yet because I need more data first.
 
 ### Operator
 Loading `signal-state/user-context.md`, indexes, and active briefs.
 
-Two calls:
+Three calls:
 
 1. `skool-competition-submission` moves to completed.
-2. `email-campaign-audit-optimization` is real, but not actionable yet. It should not hold a signal slot until Saturday.
+2. `cold-outbound-campaign-launch` moves to completed because the launch itself is done. If follow-up work appears, it should become its own item.
+3. `email-campaign-audit-optimization` is real, but not actionable yet. It should not hold a signal slot until Saturday.
 
 ### User
 > Agreed.
@@ -143,16 +170,17 @@ Locked.
 **Board locked.**
 
 **Active signals:**
-1. `cold-outbound-campaign-launch` - live client work still under the current operating period
+- None right now. Empty slots are better than fake signal.
 
 **Dropped to noise:**
 - `email-campaign-audit-optimization` - waiting on enough data to make the work real
 
 **Completed / archived changes:**
 - `skool-competition-submission` - moved to completed
+- `cold-outbound-campaign-launch` - moved to completed
 
 **Work this first:**
-Protect the live campaign and only create follow-up work that makes Monday real.
+Do not force a replacement signal. Let the board stay light until the next actionable move appears.
 
 ---
 
@@ -162,7 +190,7 @@ Protect the live campaign and only create follow-up work that makes Monday real.
 > I want `warm-lead-ranking` back in signal.
 
 ### Operator
-Based on your current operating period, this still looks more like noise than signal because the board is protecting the live client launch, and warm-lead ranking is a separate track without a hard clock. If I am missing context, tell me what changed.
+Based on your current operating period, this still looks more like noise than signal because warm-lead ranking has been a separate track without a live clock. If I am missing context, tell me what changed.
 
 ### User
 > The client launch is basically done. I have a warm introduction call on Monday afternoon, and ranking those leads is what decides who gets contacted first before that call.
@@ -178,11 +206,12 @@ I still want to sharpen one thing: are you ranking the whole list, or only the s
 ### Operator
 Good. That is now a focused signal, not a vague cleanup task.
 
+I am promoting it and recording the override note in the brief: Monday's intro call makes this time-sensitive and leverage-heavy.
+
 **Board locked.**
 
 **Active signals:**
 1. `warm-lead-ranking` - directly shapes Monday's warm intro call
-2. `cold-outbound-campaign-launch` - still live, but no longer the nearest decision point
 
 **Dropped to noise:**
 - None
@@ -192,3 +221,21 @@ Good. That is now a focused signal, not a vague cleanup task.
 
 **Work this first:**
 Rank the Monday subset, not the full list.
+
+---
+
+## Example 5 - Profile update from a recurring pattern
+
+### User
+> Daily triage. I spent most of the morning trying to improve my internal automation setup instead of doing outreach.
+
+### Operator
+That looks like a pattern, not a one-off.
+
+I am noticing that internal system work keeps pulling attention sideways when live revenue work is available. Want me to add that to your user context as a confirmed noise pattern?
+
+### User
+> Yes.
+
+### Operator
+Added. `Tool / feature over-integration` is now a confirmed noise pattern in `signal-state/user-context.md`.
