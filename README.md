@@ -14,74 +14,107 @@ Signal Operator exists to answer one question cleanly:
 
 `What actually deserves my attention right now?`
 
-## What this repo contains
+## What's in here
 
 The actual deliverable is the `signal-operator/` folder.
 
 ```text
 signal-operator/
-|- identity.md
-|- rules.md
-|- examples.md
-|- reference/
-`- README.md
+├── README.md                  ← start here
+├── identity.md                ← who the operator is and how it sees signal vs noise
+├── rules.md                   ← read order, output contract, and operating constraints
+├── examples.md                ← example onboarding, triage, pushback, and future sessions
+└── reference/                 ← the operating doctrine behind the specialist
+    ├── triage-method.md         ← what earns signal vs what falls to noise
+    ├── onboarding-protocol.md   ← Phase 1 and Phase 2 onboarding flow
+    ├── daily-triage-protocol.md ← how later sessions update the live board
+    ├── pushback-patterns.md     ← structured challenge patterns for weak signal candidates
+    ├── signal-ranking.md        ← how the operator orders active signals
+    ├── brief-template.md        ← structure for each item brief
+    ├── index-template.md        ← structure for bucket indexes
+    ├── file-ops-conventions.md  ← how state is created, moved, and maintained
+    ├── user-context-template.md ← structure for the durable user profile
+    └── common-noise-patterns.md ← common productive-looking traps to watch for
 ```
 
-That folder contains the specialist itself:
-
-- `identity.md` defines who the operator is and how it sees signal vs noise
-- `rules.md` defines the read order, output contract, and operating constraints
-- `examples.md` shows the operator's voice and decisions in practice
-- `reference/` contains the doctrine, protocols, templates, and ranking logic
-- `README.md` tells the end user exactly how to start
-
-Inside `reference/`, the specialist has explicit operating doctrine instead of vague prompting:
-
-```text
-reference/
-|- triage-method.md
-|- onboarding-protocol.md
-|- daily-triage-protocol.md
-|- pushback-patterns.md
-|- signal-ranking.md
-|- brief-template.md
-|- index-template.md
-|- file-ops-conventions.md
-|- user-context-template.md
-`- common-noise-patterns.md
-```
+This is what gives the specialist depth. It is not one prompt file pretending to be a system. It is a portable operator with explicit identity, rules, examples, and reference doctrine.
 
 ## What Claude creates during use
 
-The specialist stays reusable. The user state is created separately under `signal-state/`:
+The specialist stays reusable. The user state is created separately under `signal-state/`.
 
 ```text
 signal-state/
-|- user-context.md
-|- signals/
-|- noise/
-|- completed/
-`- archived/
+├── user-context.md                       ← durable profile built in Phase 1
+├── signals/
+│   ├── index.md                          ← ranked active signals for the current board
+│   ├── cold-outbound-campaign-launch/
+│   │   └── brief.md                      ← live signal example
+│   └── skool-competition-submission/
+│       └── brief.md                      ← another active signal example
+├── noise/
+│   ├── index.md                          ← real work that does not deserve a slot right now
+│   └── godspeed-integration/
+│       └── brief.md                      ← productive-looking drift example
+├── completed/
+│   ├── index.md                          ← finished work
+│   └── warm-lead-ranking/
+│       └── brief.md                      ← completed item example
+└── archived/
+    ├── index.md                          ← intentionally dead or dropped work
+    └── old-offer-angle/
+        └── brief.md                      ← archived item example
 ```
 
 That separation is the point:
 
-- the specialist folder is the reusable operating system
-- the state folder is the live board for the current user
+- `signal-operator/` is the reusable operating system
+- `signal-state/` is the live board created for the current user
 
 ## How it works
 
-Signal Operator runs in two phases:
+Signal Operator works in three stages:
 
-1. `Phase 1: Build User Context`
-It learns how the user works, what kinds of work compete for attention, what usually counts as signal, and what usually becomes noise.
+### 1. Phase 1: Build User Context
 
-2. `Phase 2: Build First Signal Board`
-It takes the current work inventory, pushes back on weak signal candidates, and locks a board with up to 3 active signals.
+The operator builds a durable profile of how the user works:
 
-After onboarding, future sessions read the existing context and board, update the files, and return a clear first move.
+- what kind of business or work they run
+- what work streams compete for attention
+- what usually counts as signal
+- what usually becomes noise
+- what tradeoffs should usually win
 
-## What you get
+This becomes `signal-state/user-context.md`.
+
+### 2. Phase 2: Build First Signal Board
+
+The operator takes the current work inventory, asks what the user thinks deserves signal, pushes back on weak candidates, and creates the first live board.
+
+That means:
+
+- up to 3 active signals
+- everything else routed to noise, completed, or archived
+- ranked active signals
+- a clear first move
+
+### 3. Future sessions: Update the board
+
+Future sessions do not restart from scratch.
+
+The operator reads the existing `user-context.md`, active signals, noise, completed, and archived items, then compares that state against whatever is new today.
+
+That means later sessions can:
+
+- close finished signals
+- demote blocked work to noise
+- promote new signal candidates
+- challenge productive-looking drift
+- update the board without losing continuity
+
+The result is not just onboarding. It is an ongoing signal-vs-noise operating system.
+
+## What you get back
 
 When the specialist is working properly, the output is not a vague productivity conversation. It ends with a locked board and a direct instruction:
 
