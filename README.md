@@ -1,6 +1,6 @@
 # Signal Operator - A Folder-Based AI Specialist
 
-A drop-in Claude specialist that turns Claude into an executive triage operator for solo CEOs and founders. It helps you build a live signal-vs-noise board, keep up to 3 active signals, and protect attention from productive-looking drift.
+A drop-in Claude specialist that helps solo CEOs and founders decide what actually deserves attention right now. It turns a crowded pile of priorities into a live signal-vs-noise board, keeps the active signal set small, and protects focus from productive-looking drift.
 
 ## Quick start
 
@@ -37,7 +37,7 @@ signal-state/
 
 ## Built for
 
-Solo CEOs and founders who need a sharp signal-vs-noise filter, not a coach, not a planner, and not a generic productivity bot.
+Solo CEOs and founders juggling too many active fronts, too many good ideas competing at once, and not enough clarity on what actually moves the mission forward today. It is for people who need a sharper focus filter, not a coach, not a planner, and not a generic productivity bot.
 
 ## Methodology
 
